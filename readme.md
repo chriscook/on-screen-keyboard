@@ -1,7 +1,7 @@
 On Screen Keyboard
 =============
 
-Version 1.0
+Version 1.0.1
 -----------
 
 ### Introduction
@@ -10,11 +10,11 @@ __On Screen Keyboard__ is a _jQuery_ plug-in which allows a fluid-width keyboard
 
 ### How to use it
 
-1. Add 0`jquery.onScreenKeyboard.js` and `onScreenKeyboard.css` to your project, along with _jQuery_. Optionally also add _jQuery UI_ with the _Draggables_ widget if you would like your users to be able to move the keyboard around the screen.
+1. Add `jquery.onScreenKeyboard.js` and `onScreenKeyboard.css` to your project, along with _jQuery_. Optionally also add _jQuery UI_ with the _Draggables_ widget if you would like your users to be able to move the keyboard around the screen.
 2. Create your form or input elements.
 3. Add the following JavaScript to your page, to be executed on load:
 
-    $('.osk-trigger').onScreenKeyboard();
+	$('.osk-trigger').onScreenKeyboard();
 
 ...where `.osk-trigger` is a selector for the input elements you would like to trigger the keyboard.
 
@@ -32,11 +32,11 @@ Additional settings can be used to customise the keyboard, and should be added a
 
 An example of these in practice:
 
-    $('.osk-trigger').onScreenKeyboard({
-        'draggable'    : true,
-        'rewireReturn' : 'search',
-        'rewireTab'    : true
-    });
+	$('.osk-trigger').onScreenKeyboard({
+		'draggable'    : true,
+		'rewireReturn' : 'search',
+		'rewireTab'    : true
+	});
 
 In addition to these universal settings, you can change the keyboard on an input-by-input basis using the following parameters added to your input elements under the attribute `data-osk-options`, separated by spaces:
 
@@ -46,10 +46,10 @@ In addition to these universal settings, you can change the keyboard on an input
 
 An example of these in practice:
 
-    <input type="text" id="input1" class="osk-trigger" data-osk-options="disableReturn disableTab">
+	<input type="text" id="input1" class="osk-trigger" data-osk-options="disableReturn disableTab">
 
 `jquery.onscreenkeyboard.js` contains the HTML for the keyboard at the top (although it is compressed). As long as class names remain the same, this can be changed however much you like. Keep in mind that the character entered into the input box is taken directly from the contents of the `li` element for the pressed key (with exceptions for special keys such as return and tab, when not overridden, and backspace).
-    
+
 `onscreenkeyboard.css` can also be edited to customise the keyboard's design. The first section, "Keyboard Structure" should be mostly left alone. The second section contains definitions for colour and keyboard position.
 
 ### Compatibility
