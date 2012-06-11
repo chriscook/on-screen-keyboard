@@ -14,7 +14,9 @@ __On Screen Keyboard__ is a _jQuery_ plug-in which allows a fluid-width keyboard
 2. Create your form or input elements.
 3. Add the following JavaScript to your page, to be executed on load:
 
+```javascript
 	$('.osk-trigger').onScreenKeyboard();
+```
 
 ...where `.osk-trigger` is a selector for the input elements you would like to trigger the keyboard.
 
@@ -32,11 +34,13 @@ Additional settings can be used to customise the keyboard, and should be added a
 
 An example of these in practice:
 
+```javascript
 	$('.osk-trigger').onScreenKeyboard({
 		'draggable'    : true,
 		'rewireReturn' : 'search',
 		'rewireTab'    : true
 	});
+```
 
 In addition to these universal settings, you can change the keyboard on an input-by-input basis using the following parameters added to your input elements under the attribute `data-osk-options`, separated by spaces:
 
@@ -46,7 +50,9 @@ In addition to these universal settings, you can change the keyboard on an input
 
 An example of these in practice:
 
+```html
 	<input type="text" id="input1" class="osk-trigger" data-osk-options="disableReturn disableTab">
+```
 
 `jquery.onscreenkeyboard.js` contains the HTML for the keyboard at the top (although it is compressed). As long as class names remain the same, this can be changed however much you like. Keep in mind that the character entered into the input box is taken directly from the contents of the `li` element for the pressed key (with exceptions for special keys such as return and tab, when not overridden, and backspace).
 
@@ -62,9 +68,9 @@ An example of these in practice:
 
 ### Issues
 
-+ In Opera, The widths of keys on the upper three rows will not match that of the space bar. This is due to the way Opera deals with sub-pixel values.
++ In Opera, the widths of keys on the upper three rows will not match that of the space bar. This is due to the way Opera deals with sub-pixel values.
 
-### Author and acknowledgements
+### Author and Acknowledgements
 
 + Written by [Chris Cook](http://chris-cook.co.uk)
 + Based upon [this tutorial from nettuts+](http://net.tutsplus.com/tutorials/javascript-ajax/creating-a-keyboard-with-css-and-jquery/)
