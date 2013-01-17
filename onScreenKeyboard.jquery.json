@@ -24,7 +24,7 @@
 	"homepage": "https://github.com/chriscook/on-screen-keyboard",
 	"docs": "https://github.com/chriscook/on-screen-keyboard",
 	"download": "https://github.com/chriscook/on-screen-keyboard",
-	"demo": "https://github.com/chriscook/on-screen-keyboard",
+	"demo": "http://chriscook.github.com/on-screen-keyboard/",
 	"dependencies": {
 		"jquery": ">=1.5"
 	}

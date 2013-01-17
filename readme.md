@@ -8,6 +8,10 @@ Version 1.0.1
 
 __On Screen Keyboard__ is a _jQuery_ plug-in which allows a fluid-width keyboard to be launched when the user clicks on an element.
 
+### Demo
+
+A demo is available [here](http://chriscook.github.com/on-screen-keyboard/).
+
 ### How to use it
 
 1. Add `jquery.onScreenKeyboard.js` and `onScreenKeyboard.css` to your project, along with _jQuery_. Optionally also add _jQuery UI_ with the _Draggables_ widget if you would like your users to be able to move the keyboard around the screen.
