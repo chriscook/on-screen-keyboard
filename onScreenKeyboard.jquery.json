@@ -1,12 +1,13 @@
 {
 	"name": "onScreenKeyboard",
 	"title": "On-Screen Keyboard",
-	"description": "A jQuery plug-in which provides users with a fluid-width on-screen keyboard.",
+	"description": "Provides users with a fluid-width on-screen keyboard.",
 	"keywords": [
 		"keyboard",
 		"security",
 		"accessibility",
-		"touchscreen"
+		"touchscreen",
+		"touch"
 	],
 	"version": "1.0.1",
 	"author": {
@@ -23,7 +24,6 @@
 	"bugs": "https://github.com/chriscook/on-screen-keyboard/issues",
 	"homepage": "https://github.com/chriscook/on-screen-keyboard",
 	"docs": "https://github.com/chriscook/on-screen-keyboard",
-	"download": "https://github.com/chriscook/on-screen-keyboard",
 	"demo": "http://chriscook.github.com/on-screen-keyboard/",
 	"dependencies": {
 		"jquery": ">=1.5"
