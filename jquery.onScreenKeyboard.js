@@ -186,7 +186,6 @@
 			var $key = $(),
 				keyboardWidth = $keyboard.width(),
 				totalKeysWidth = 0,
-				currentKeyWidth,
 				difference;
 			if (browserInPercent) {
 				$keys.each(function () {
@@ -201,7 +200,6 @@
 							difference = 0;
 							totalKeysWidth = 0;
 						}
-						currentKeyWidth = 0;
 					}
 				});
 			}
