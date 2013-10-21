@@ -9,128 +9,6 @@
 
 	$.fn.onScreenKeyboard = function (options) {
 
-		$('body').append(
-			'<ul id="osk-container">' +
-				'<li class="osk-dragger osk-last-item">:&thinsp;:</li>' +
-				'<li class="osk-symbol">' +
-					'<span class="osk-off">&acute;</span>' +
-					'<span class="osk-on">#</span>' +
-				'</li>' +
-				'<li class="osk-number">' +
-					'<span class="osk-off">1</span>' +
-					'<span class="osk-on">!</span>' +
-				'</li>' +
-				'<li class="osk-number">' +
-					'<span class="osk-off">2</span>' +
-					'<span class="osk-on">&quot;</span>' +
-				'</li>' +
-				'<li class="osk-number">' +
-					'<span class="osk-off">3</span>' +
-					'<span class="osk-on">&pound;</span>' +
-				'</li>' +
-				'<li class="osk-number">' +
-					'<span class="osk-off">4</span>' +
-					'<span class="osk-on">$</span>' +
-				'</li>' +
-				'<li class="osk-number">' +
-					'<span class="osk-off">5</span>' +
-					'<span class="osk-on">%</span>' +
-				'</li>' +
-				'<li class="osk-number">' +
-					'<span class="osk-off">6</span>' +
-					'<span class="osk-on">^</span>' +
-				'</li>' +
-				'<li class="osk-number">' +
-					'<span class="osk-off">7</span>' +
-					'<span class="osk-on">&amp;</span>' +
-				'</li>' +
-				'<li class="osk-number">' +
-					'<span class="osk-off">8</span>' +
-					'<span class="osk-on">*</span></li>' +
-				'<li class="osk-number">' +
-					'<span class="osk-off">9</span>' +
-					'<span class="osk-on">(</span>' +
-				'</li>' +
-				'<li class="osk-number">' +
-					'<span class="osk-off">0</span>' +
-					'<span class="osk-on">)</span>' +
-				'</li>' +
-				'<li class="osk-symbol">' +
-					'<span class="osk-off">-</span>' +
-					'<span class="osk-on">_</span>' +
-				'</li>' +
-				'<li class="osk-symbol">' +
-					'<span class="osk-off">=</span>' +
-					'<span class="osk-on">+</span>' +
-				'</li>' +
-				'<li class="osk-backspace osk-last-item">backspace</li>' +
-				'<li class="osk-tab">tab</li>' +
-				'<li class="osk-letter">q</li>' +
-				'<li class="osk-letter">w</li>' +
-				'<li class="osk-letter">e</li>' +
-				'<li class="osk-letter">r</li>' +
-				'<li class="osk-letter">t</li>' +
-				'<li class="osk-letter">y</li>' +
-				'<li class="osk-letter">u</li>' +
-				'<li class="osk-letter">i</li>' +
-				'<li class="osk-letter">o</li>' +
-				'<li class="osk-letter">p</li>' +
-				'<li class="osk-symbol">' +
-					'<span class="osk-off">[</span>' +
-					'<span class="osk-on">{</span>' +
-				'</li>' +
-				'<li class="osk-symbol">' +
-					'<span class="osk-off">]</span>' +
-					'<span class="osk-on">}</span>' +
-				'</li>' +
-				'<li class="osk-symbol osk-last-item">' +
-					'<span class="osk-off">\\</span>' +
-					'<span class="osk-on">|</span>' +
-				'</li>' +
-				'<li class="osk-capslock">caps lock</li>' +
-				'<li class="osk-letter">a</li>' +
-				'<li class="osk-letter">s</li>' +
-				'<li class="osk-letter">d</li>' +
-				'<li class="osk-letter">f</li>' +
-				'<li class="osk-letter">g</li>' +
-				'<li class="osk-letter">h</li>' +
-				'<li class="osk-letter">j</li>' +
-				'<li class="osk-letter">k</li>' +
-				'<li class="osk-letter">l</li>' +
-				'<li class="osk-symbol">' +
-					'<span class="osk-off">;</span>' +
-					'<span class="osk-on">:</span>' +
-				'</li>' +
-				'<li class="osk-symbol">' +
-					'<span class="osk-off">\'</span>' +
-					'<span class="osk-on">@</span>' +
-				'</li>' +
-				'<li class="osk-return osk-last-item">return</li>' +
-				'<li class="osk-shift">shift</li>' +
-				'<li class="osk-letter">z</li>' +
-				'<li class="osk-letter">x</li>' +
-				'<li class="osk-letter">c</li>' +
-				'<li class="osk-letter">v</li>' +
-				'<li class="osk-letter">b</li>' +
-				'<li class="osk-letter">n</li>' +
-				'<li class="osk-letter">m</li>' +
-				'<li class="osk-symbol">' +
-					'<span class="osk-off">,</span>' +
-					'<span class="osk-on">&lt;</span>' +
-				'</li>' +
-				'<li class="osk-symbol">' +
-					'<span class="osk-off">.</span>' +
-					'<span class="osk-on">&gt;</span>' +
-				'</li>' +
-				'<li class="osk-symbol">' +
-					'<span class="osk-off">/</span>' +
-					'<span class="osk-on">?</span>' +
-				'</li>' +
-				'<li class="osk-hide osk-last-item">hide keyboard</li>' +
-				'<li class="osk-space osk-last-item">space</li>' +
-			'</ul>'
-		);
-
 		var settings = $.extend({
 			draggable : false,
 			rewireReturn : false,
@@ -140,7 +18,7 @@
 		}, options),
 			$keyboardTriggers = this,
 			$input = $(),
-			$keyboard = $('ul#osk-container'),
+			$keyboard = renderKeyboard('osk-container'),
 			$keys = $keyboard.children('li'),
 			$letterKeys = $keyboard.children('li.osk-letter'),
 			$symbolKeys = $keyboard.children('li.osk-symbol'),
@@ -338,5 +216,147 @@
 		return this;
 
 	};
+
+	/**
+	 * Renders the keyboard.
+	 *
+	 * @param {String}  id of the keyboard
+	 *
+	 * @return {jQuery} the keyboard jQuery instance
+	 */
+	function renderKeyboard(keyboardId)
+	{
+		var $keyboard = $('#' + keyboardId);
+
+		if ($keyboard.length) {
+			return $keyboard;
+		}
+
+		$keyboard = $(
+			'<ul id="' + keyboardId + '">' +
+				'<li class="osk-dragger osk-last-item">:&thinsp;:</li>' +
+				'<li class="osk-symbol">' +
+					'<span class="osk-off">&acute;</span>' +
+					'<span class="osk-on">#</span>' +
+				'</li>' +
+				'<li class="osk-number">' +
+					'<span class="osk-off">1</span>' +
+					'<span class="osk-on">!</span>' +
+				'</li>' +
+				'<li class="osk-number">' +
+					'<span class="osk-off">2</span>' +
+					'<span class="osk-on">&quot;</span>' +
+				'</li>' +
+				'<li class="osk-number">' +
+					'<span class="osk-off">3</span>' +
+					'<span class="osk-on">&pound;</span>' +
+				'</li>' +
+				'<li class="osk-number">' +
+					'<span class="osk-off">4</span>' +
+					'<span class="osk-on">$</span>' +
+				'</li>' +
+				'<li class="osk-number">' +
+					'<span class="osk-off">5</span>' +
+					'<span class="osk-on">%</span>' +
+				'</li>' +
+				'<li class="osk-number">' +
+					'<span class="osk-off">6</span>' +
+					'<span class="osk-on">^</span>' +
+				'</li>' +
+				'<li class="osk-number">' +
+					'<span class="osk-off">7</span>' +
+					'<span class="osk-on">&amp;</span>' +
+				'</li>' +
+				'<li class="osk-number">' +
+					'<span class="osk-off">8</span>' +
+					'<span class="osk-on">*</span></li>' +
+				'<li class="osk-number">' +
+					'<span class="osk-off">9</span>' +
+					'<span class="osk-on">(</span>' +
+				'</li>' +
+				'<li class="osk-number">' +
+					'<span class="osk-off">0</span>' +
+					'<span class="osk-on">)</span>' +
+				'</li>' +
+				'<li class="osk-symbol">' +
+					'<span class="osk-off">-</span>' +
+					'<span class="osk-on">_</span>' +
+				'</li>' +
+				'<li class="osk-symbol">' +
+					'<span class="osk-off">=</span>' +
+					'<span class="osk-on">+</span>' +
+				'</li>' +
+				'<li class="osk-backspace osk-last-item">backspace</li>' +
+				'<li class="osk-tab">tab</li>' +
+				'<li class="osk-letter">q</li>' +
+				'<li class="osk-letter">w</li>' +
+				'<li class="osk-letter">e</li>' +
+				'<li class="osk-letter">r</li>' +
+				'<li class="osk-letter">t</li>' +
+				'<li class="osk-letter">y</li>' +
+				'<li class="osk-letter">u</li>' +
+				'<li class="osk-letter">i</li>' +
+				'<li class="osk-letter">o</li>' +
+				'<li class="osk-letter">p</li>' +
+				'<li class="osk-symbol">' +
+					'<span class="osk-off">[</span>' +
+					'<span class="osk-on">{</span>' +
+				'</li>' +
+				'<li class="osk-symbol">' +
+					'<span class="osk-off">]</span>' +
+					'<span class="osk-on">}</span>' +
+				'</li>' +
+				'<li class="osk-symbol osk-last-item">' +
+					'<span class="osk-off">\\</span>' +
+					'<span class="osk-on">|</span>' +
+				'</li>' +
+				'<li class="osk-capslock">caps lock</li>' +
+				'<li class="osk-letter">a</li>' +
+				'<li class="osk-letter">s</li>' +
+				'<li class="osk-letter">d</li>' +
+				'<li class="osk-letter">f</li>' +
+				'<li class="osk-letter">g</li>' +
+				'<li class="osk-letter">h</li>' +
+				'<li class="osk-letter">j</li>' +
+				'<li class="osk-letter">k</li>' +
+				'<li class="osk-letter">l</li>' +
+				'<li class="osk-symbol">' +
+					'<span class="osk-off">;</span>' +
+					'<span class="osk-on">:</span>' +
+				'</li>' +
+				'<li class="osk-symbol">' +
+					'<span class="osk-off">\'</span>' +
+					'<span class="osk-on">@</span>' +
+				'</li>' +
+				'<li class="osk-return osk-last-item">return</li>' +
+				'<li class="osk-shift">shift</li>' +
+				'<li class="osk-letter">z</li>' +
+				'<li class="osk-letter">x</li>' +
+				'<li class="osk-letter">c</li>' +
+				'<li class="osk-letter">v</li>' +
+				'<li class="osk-letter">b</li>' +
+				'<li class="osk-letter">n</li>' +
+				'<li class="osk-letter">m</li>' +
+				'<li class="osk-symbol">' +
+					'<span class="osk-off">,</span>' +
+					'<span class="osk-on">&lt;</span>' +
+				'</li>' +
+				'<li class="osk-symbol">' +
+					'<span class="osk-off">.</span>' +
+					'<span class="osk-on">&gt;</span>' +
+				'</li>' +
+				'<li class="osk-symbol">' +
+					'<span class="osk-off">/</span>' +
+					'<span class="osk-on">?</span>' +
+				'</li>' +
+				'<li class="osk-hide osk-last-item">hide keyboard</li>' +
+				'<li class="osk-space osk-last-item">space</li>' +
+			'</ul>'
+		);
+
+		$('body').append($keyboard);
+
+		return $keyboard;
+	}
 
 })(jQuery);
