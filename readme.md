@@ -58,7 +58,7 @@ An example of these in practice:
 	<input type="text" id="input1" class="osk-trigger" data-osk-options="disableReturn disableTab">
 ```
 
-`jquery.onscreenkeyboard.js` contains the HTML for the keyboard at the top (although it is compressed). As long as class names remain the same, this can be changed however much you like. Keep in mind that the character entered into the input box is taken directly from the contents of the `li` element for the pressed key (with exceptions for special keys such as return and tab, when not overridden, and backspace).
+`jquery.onscreenkeyboard.js` contains the HTML for the keyboard at the bottom. As long as class names remain the same, this can be changed however much you like. The keyboard can only be written manually (e.g. custom non-us keyboard layouts) - the plugin is able to pick it up.. Keep in mind that the character entered into the input box is taken directly from the contents of the `li` element for the pressed key (with exceptions for special keys such as return and tab, when not overridden, and backspace).
 
 `onscreenkeyboard.css` can also be edited to customise the keyboard's design. The first section, "Keyboard Structure" should be mostly left alone. The second section contains definitions for colour and keyboard position.
 
