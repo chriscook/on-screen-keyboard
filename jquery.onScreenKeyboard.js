@@ -171,6 +171,7 @@
 			// 'Tab' key - either enter an indent (default) or switch to next form element
 			if ($key.hasClass('osk-tab')) {
 				if (settings.rewireTab) {
+					$input.trigger('onchange');
 					indexOfNextInput = $keyboardTriggers.index($input) + 1;
 					if (indexOfNextInput < $keyboardTriggers.length) {
 						$input = $($keyboardTriggers[indexOfNextInput]);
