@@ -1,6 +1,11 @@
-/*
- * On Screen Keyboard jQuery Plugin version 1.0.1
- * Chris Cook - chris@chris-cook.co.uk
+/**
+ * On-Screen Keyboard jQuery Plugin
+ *
+ * Provides users with a fluid-width on-screen keyboard.
+ *
+ * @author Chris Cook <chris@chris-cook.co.uk>
+ * @license MIT
+ * @version 1.0.2
  */
 
 (function ($) {
@@ -10,29 +15,30 @@
 	$.fn.onScreenKeyboard = function (options) {
 
 		var settings = $.extend({
-			draggable : false,
-			rewireReturn : false,
-			rewireTab : false,
-			topPosition : '20%',
-			leftPosition : '30%'
-		}, options),
-			$keyboardTriggers = this,
-			$input = $(),
-			$keyboard = renderKeyboard('osk-container'),
-			$keys = $keyboard.children('li'),
-			$letterKeys = $keyboard.children('li.osk-letter'),
-			$symbolKeys = $keyboard.children('li.osk-symbol'),
-			$numberKeys = $keyboard.children('li.osk-number'),
-			$returnKey = $keyboard.children('li.osk-return'),
-			$tabKey = $keyboard.children('li.osk-tab'),
-			shift = false,
-			capslock = false,
-			inputOptions = [],
-			browserInPercent = $tabKey.css('marginRight').indexOf('%') > -1;
+			draggable: false,
+			rewireReturn: false,
+			rewireTab: false,
+			topPosition: '20%',
+			leftPosition: '30%'
+		}, options);
+		var $keyboardTriggers = this;
+		var $input = $();
+		var $keyboard = renderKeyboard('osk-container');
+		var $keys = $keyboard.children('li');
+		var $letterKeys = $keyboard.children('li.osk-letter');
+		var $symbolKeys = $keyboard.children('li.osk-symbol');
+		var $numberKeys = $keyboard.children('li.osk-number');
+		var $returnKey = $keyboard.children('li.osk-return');
+		var $tabKey = $keyboard.children('li.osk-tab');
+		var shift = false;
+		var capslock = false;
+		var inputOptions = [];
+		var browserInPercent = $tabKey.css('marginRight').indexOf('%') > -1;
 
 		/**
 		 * Focuses and customises the keyboard for the current input object.
-		 * @param {jQueryObject}                 The input object to focus on.
+		 *
+		 * @param {jQueryObject} The input object to focus on.
 		 */
 		function activateInput($input) {
 			var inputOptionsString = $input.attr('data-osk-options');
@@ -55,10 +61,11 @@
 		}
 
 		/**
-		 * Fixes the width of the keyboard in browsers which round down part-pixel values (all
-		 * except Firefox). Most browsers which do this return CSS margins in pixels rather than
-		 * percent, so this is used to determine whether or not to use this function. Opera does not
-		 * however, so for now this function does not work in that browser.
+		 * Fixes the width of the keyboard in browsers which round down part-pixel
+		 * values (all except Firefox). Most browsers which do this return CSS
+		 * margins in pixels rather than percent, so this is used to determine
+		 * whether or not to use this function. Opera does not however, so for now
+		 * this function does not work in that browser.
 		 */
 		function fixWidths() {
 			var $key = $(),
@@ -223,12 +230,10 @@
 	/**
 	 * Renders the keyboard.
 	 *
-	 * @param {String}  id of the keyboard
-	 *
+	 * @param {String} id of the keyboard
 	 * @return {jQuery} the keyboard jQuery instance
 	 */
-	function renderKeyboard(keyboardId)
-	{
+	function renderKeyboard(keyboardId) {
 		var $keyboard = $('#' + keyboardId);
 
 		if ($keyboard.length) {

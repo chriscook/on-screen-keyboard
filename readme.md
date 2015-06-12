@@ -1,12 +1,10 @@
-On Screen Keyboard
-=============
+# On Screen Keyboard
 
-Version 1.0.1
------------
+## Version 1.0.2
 
 ### Introduction
 
-__On Screen Keyboard__ is a _jQuery_ plug-in which allows a fluid-width keyboard to be launched when the user clicks on an element.
+__On-Screen Keyboard__ is a _jQuery_ plug-in which allows a fluid-width keyboard to be launched when the user clicks on an element.
 
 ### Demo
 
@@ -30,7 +28,7 @@ A demo is available in demo.html.
 
 Additional settings can be used to customise the keyboard, and should be added as a parameter within curly braces:
 
-+ `draggable`: __Requres jQuery UI with Draggables__ Whether or not the keyboard is moveable (default `false`; must be boolean).
++ `draggable`: __Requres jQuery UI with Draggables__ Whether or not the keyboard is movable (default `false`; must be boolean).
 + `rewireReturn`: Make the return key submit the form instead of inserting a linebreak (default `false`; must be either boolean false or a string to replace `'return'` with on the key).
 + `rewireTab`: Make the tab key cycle through input elements in the order they appear in the DOM instead of inserting a tab (default `false`; must be boolean).
 + `topPosition`: The `top` CSS property of the keyboard (default `20%`; must be a string suitable for CSS, i.e. one ending in a measurement unit).
@@ -40,9 +38,9 @@ An example of these in practice:
 
 ```javascript
 	$('.osk-trigger').onScreenKeyboard({
-		'draggable'    : true,
-		'rewireReturn' : 'search',
-		'rewireTab'    : true
+		'draggable': true,
+		'rewireReturn': 'search',
+		'rewireTab': true
 	});
 ```
 
@@ -58,14 +56,14 @@ An example of these in practice:
 	<input type="text" id="input1" class="osk-trigger" data-osk-options="disableReturn disableTab">
 ```
 
-`jquery.onscreenkeyboard.js` contains the HTML for the keyboard at the bottom. As long as class names remain the same, this can be changed however much you like. The keyboard can only be written manually (e.g. custom non-us keyboard layouts) - the plugin is able to pick it up.. Keep in mind that the character entered into the input box is taken directly from the contents of the `li` element for the pressed key (with exceptions for special keys such as return and tab, when not overridden, and backspace).
+`jquery.onscreenkeyboard.js` contains the HTML for the keyboard at the bottom. As long as class names remain the same, this can be changed however much you like. The keyboard can only be written manually (e.g. custom non-us keyboard layouts) - the plugin is able to pick it up. Keep in mind that the character entered into the input box is taken directly from the contents of the `li` element for the pressed key (with exceptions for special keys such as return and tab, when not overridden, and backspace).
 
 `onscreenkeyboard.css` can also be edited to customise the keyboard's design. The first section, "Keyboard Structure" should be mostly left alone. The second section contains definitions for colour and keyboard position.
 
 ### Compatibility
 
-+ Internet Explorer 7, 8, 9
-+ Firefox 3, 9
++ Internet Explorer 7+
++ Firefox 3+
 + Chrome
 + Opera (see note below)
 + Safari
