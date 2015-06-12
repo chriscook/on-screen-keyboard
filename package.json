@@ -1,0 +1,36 @@
+{
+	"name": "onScreenKeyboard",
+	"version": "1.0.2",
+	"title": "On-Screen Keyboard jQuery plug-in",
+	"description": "Provides users with a fluid-width on-screen keyboard.",
+	"homepage": "https://github.com/chriscook/on-screen-keyboard",
+	"author": {
+		"name": "Chris Cook",
+		"email": "chris@chris-cook.co.uk",
+		"url": "http://chris-cook.co.uk"
+	},
+	"license": "MIT",
+	"keywords": [
+		"ecosystem:jquery",
+		"jquery-plugin",
+		"keyboard",
+		"security",
+		"accessibility",
+		"touchscreen",
+		"touch"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/chriscook/on-screen-keyboard.git"
+	},
+	"bugs": {
+		"email": "chris@chris-cook.co.uk",
+		"url": "https://github.com/chriscook/on-screen-keyboard/issues"
+	},
+	"dependencies": {
+		"jquery": ">=1.5"
+	},
+	"optionalDependencies": {
+		"jquery-ui": ">=1.0"
+	}
+}
