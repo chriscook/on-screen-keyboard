@@ -119,7 +119,9 @@
 		});
 
 		$keyboard.on('click', 'li', function () {
-			var $key      = $(this),
+				$(this).animate({height: '2.9em', opacity: '0.6'}, 100);
+				$(this).animate({height: '3em', opacity: '1'}, 100);
+				var $key = $(this),
 				character = $key.html(),
 				inputValue,
 				indexOfNextInput;
