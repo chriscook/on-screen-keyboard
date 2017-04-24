@@ -17,9 +17,9 @@
 		var settings = $.extend({
 			draggable: false,
 			rewireReturn: false,
-			rewireTab: false,
-			topPosition: '20%',
-			leftPosition: '30%'
+			rewireTab: false // Remove inline styles
+			//topPosition: '20%',
+			//leftPosition: '30%'
 		}, options);
 		var $keyboardTriggers = this;
 		var $input = $();
