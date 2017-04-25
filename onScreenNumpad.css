@@ -112,10 +112,11 @@ body {
 	border-radius: 0.25rem;
 	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 	position: fixed;
-	bottom: 15px;
+	/*bottom: 15px;*/
 	left: 0;
 	right: 0;
-	margin: 0 auto;
+	margin-top: 250px;
+	margin-left: 10px;
 	box-sizing: border-box;
 	padding: 1% 2%;
 }
