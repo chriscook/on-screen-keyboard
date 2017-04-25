@@ -95,19 +95,33 @@
 
 /*-----[Customisable styles]--------------------------------------------------*/
 
+body {
+	padding-bottom: 260px;
+}
+
 #osk-container {
-	width: 47%;     /* Account for 2% padding and a vertical scroll bar */
+	width: 95%;     /* Account for 2% padding and a vertical scroll bar */
 	min-width: 500px;
 	max-width: 1200px;
 	background: #EEE;
-	border-radius: 5%;
+	border-radius: 0.25rem;
 	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+	position: fixed;
+	bottom: 15px;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	box-sizing: border-box;
+	padding: 1% 2%;
 }
 
 #osk-container > li {
-	background: #DDD;
-	border-radius: 10%;
+	background: #FFF;
+	color: #000;
+	border-radius: .25rem;
 	-moz-transition: 0.5s;
+	border: 1px solid #adadad;
+	box-sizing: border-box;
 }
 
 #osk-container > .osk-dragger {
@@ -116,8 +130,10 @@
 }
 
 #osk-container > .osk-disabled {
-	background: #E5E5E5;
-	color: #CCC;
+	background: #FFF;
+	color: #000;
+	opacity: 0.65;
+	cursor: not-allowed;
 }
 
 .osk-focused {
