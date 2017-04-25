@@ -1,0 +1,147 @@
+/*-----[Keyboard structure]---------------------------------------------------*/
+
+#osk-container {
+	visibility: hidden;
+	position: fixed;
+	overflow: hidden;
+	padding: 1%;
+	margin: 0;
+	z-index: 100;
+}
+
+	#osk-container > li {
+		float: left;
+		/*width: 5.81395349%;*/
+		/*width: 20%*/
+		height: 3em;
+		margin: 0 0.726744186% 5px 0;
+		line-height: 3em;
+		text-align: center;
+		list-style-type: none;
+		cursor: pointer;
+		-webkit-user-select: none;
+		 -khtml-user-select: none;
+		   -moz-user-select: -moz-none;
+			-ms-user-select: none;
+				user-select: none;
+	}
+
+	#osk-container > .osk-left {
+		clear: left;
+	}
+
+	/*#osk-container > .osk-dragger {
+		display: none;
+		width: 100%;
+		cursor: move;
+	}
+
+		#osk-container > .osk-dragger:hover {
+			position: static;
+		}*/
+
+	#osk-container > .osk-backspace,
+	#osk-container > .osk-hide {
+		/*width: 14.9709302%;*/
+		width: 35%;
+	}
+
+	/*#osk-container > .osk-capslock {
+		width: 13.6337209%;
+	}*/
+
+	#osk-container > .osk-zero {
+		/*width: 12.4%;*/
+		width: 41%;
+	}
+
+	/*#osk-container > .osk-return {
+		width: 13.6918605%;
+	}*/
+
+	/*#osk-container > .osk-shift {
+		width: 16.2381395%;
+	}*/
+
+	/*#osk-container > .osk-hide {
+		width: 17.5581396%;
+	}*/
+
+	/*#osk-container > .osk-space {
+		clear: left;
+		width: 100%;
+		margin: 0;
+	}*/
+
+	#osk-container > .osk-last-item {
+		margin-right: 0 !important;
+	}
+
+	#osk-container .osk-on {
+		display: none;
+	}
+
+	/*#osk-container > .osk-uppercase {
+		text-transform: uppercase;
+	}
+
+	#osk-container > .osk-disabled {
+		cursor: default;
+	}
+
+	#osk-container > .osk-disabled:hover {
+		position: static;
+	}*/
+
+	#osk-container > li:hover {
+		position: relative;
+		top: 1px;
+	}
+
+/*-----[Customisable styles]--------------------------------------------------*/
+
+body {
+	padding-bottom: 260px;
+}
+
+#osk-container {
+	width: 25%;     /* Account for 2% padding and a vertical scroll bar */
+	min-width: 250px;
+	/*max-width: 1200px;*/
+	background: #EEE;
+	border-radius: 0.25rem;
+	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+	position: fixed;
+	bottom: 15px;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	box-sizing: border-box;
+	padding: 1% 2%;
+}
+
+#osk-container > li {
+	background: #FFF;
+	color: #000;
+	border-radius: .25rem;
+	-moz-transition: 0.5s;
+	border: 1px solid #adadad;
+	box-sizing: border-box;
+	width: 20%;
+}
+
+/*#osk-container > .osk-dragger {
+	background: transparent;
+	color: #AAA;
+}
+
+#osk-container > .osk-disabled {
+	background: #FFF;
+	color: #000;
+	opacity: 0.65;
+	cursor: not-allowed;
+}*/
+
+.osk-focused {
+	background: #FAFAFA !important;
+}
