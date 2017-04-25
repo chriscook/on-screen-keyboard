@@ -6,6 +6,7 @@
 		<meta charset="utf-8">
 		<title>On Screen Keyboard demo</title>
 		<link rel="stylesheet" type="text/css" href="onScreenKeyboard.css">
+		<link rel="stylesheet" type="text/css" href="onScreenNumpad.css">
 		<style>
 			html {
 				font-family: Calibri, Arial, sans-serif;
@@ -39,13 +40,21 @@
 			<input type="text" id="input2" class="osk-trigger" placeholder="disable symbols" data-osk-options="disableSymbols">
 			<input type="text" id="input3" class="osk-trigger" placeholder="enable everything">
 			<textarea id="input4" class="osk-trigger" placeholder="enable everything"></textarea>
+			<input type="num" id="input5" class="osn-trigger" placeholder="Numpad"></input>
 		</form>
 
 		<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
 		<script src="jquery.onScreenKeyboard.js"></script>
+		<script src="jquery.onScreenNumpad.js"></script>
 		<script>
 			$(function () {
 				$('#input_container').children('.osk-trigger').onScreenKeyboard({
+					rewireReturn : 'submit',
+					rewireTab : true
+				});
+			});
+			$(function () {
+				$('#input_container').children('.osn-trigger').onScreenNumpad({
 					rewireReturn : 'submit',
 					rewireTab : true
 				});

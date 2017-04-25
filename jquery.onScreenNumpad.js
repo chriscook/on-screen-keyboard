@@ -1,7 +1,7 @@
 /**
- * On-Screen Keyboard jQuery Plugin
+ * On-Screen Numpad jQuery Plugin
  *
- * Provides users with a fluid-width on-screen keyboard.
+ * Provides users with a fluid-width on-screen numpad.
  *
  * @author Chris Cook <chris@chris-cook.co.uk>
  * @license MIT
@@ -12,7 +12,7 @@
 
 	'use strict';
 
-	$.fn.onScreenKeyboard = function (options) {
+	$.fn.onScreenNumpad = function (options) {
 
 		var settings = $.extend({
 			draggable: false,
@@ -21,47 +21,47 @@
 			//topPosition: '20%',
 			//leftPosition: '30%'
 		}, options);
-		var $keyboardTriggers = this;
+		var $numpadTriggers = this;
 		var $input = $();
-		var $keyboard = renderKeyboard('osk-container');
-		var $keys = $keyboard.children('li');
-		var $letterKeys = $keyboard.children('li.osk-letter');
-		var $symbolKeys = $keyboard.children('li.osk-symbol');
-		var $numberKeys = $keyboard.children('li.osk-number');
-		var $returnKey = $keyboard.children('li.osk-return');
-		var $oneKey = $keyboard.children('li.osk-one');
+		var $numpad = renderNumpad('osn-container');
+		var $keys = $numpad.children('li');
+		var $letterKeys = $numpad.children('li.osn-letter');
+		var $symbolKeys = $numpad.children('li.osn-symbol');
+		var $numberKeys = $numpad.children('li.osn-number');
+		var $returnKey = $numpad.children('li.osn-return');
+		var $oneKey = $numpad.children('li.osn-one');
 		var shift = false;
 		var capslock = false;
 		var inputOptions = [];
 		var browserInPercent = $oneKey.css('marginRight').indexOf('%') > -1;
 
 		/**
-		 * Focuses and customises the keyboard for the current input object.
+		 * Focuses and customises the numpad for the current input object.
 		 *
 		 * @param {jQueryObject} The input object to focus on.
 		 */
 		function activateInput($input) {
-			var inputOptionsString = $input.attr('data-osk-options');
-			$keys.removeClass('osk-disabled');
-			$keyboardTriggers.removeClass('osk-focused');
+			var inputOptionsString = $input.attr('data-osn-options');
+			$keys.removeClass('osn-disabled');
+			$numpadTriggers.removeClass('osn-focused');
 			if (inputOptionsString !== undefined) {
 				inputOptions = inputOptionsString.split(' ');
 				if ($.inArray('disableSymbols', inputOptions) > -1) {
-					$symbolKeys.addClass('osk-disabled');
+					$symbolKeys.addClass('osn-disabled');
 				}
 				if ($.inArray('disableTab', inputOptions) > -1) {
-					$tabKey.addClass('osk-disabled');
+					$tabKey.addClass('osn-disabled');
 				}
 				if ($.inArray('disableReturn', inputOptions) > -1) {
-					$returnKey.addClass('osk-disabled');
+					$returnKey.addClass('osn-disabled');
 				}
 
 			}
-			$input.addClass('osk-focused').focus();
+			$input.addClass('osn-focused').focus();
 		}
 
 		/**
-		 * Fixes the width of the keyboard in browsers which round down part-pixel
+		 * Fixes the width of the numpad in browsers which round down part-pixel
 		 * values (all except Firefox). Most browsers which do this return CSS
 		 * margins in pixels rather than percent, so this is used to determine
 		 * whether or not to use this function. Opera does not however, so for now
@@ -69,16 +69,16 @@
 		 */
 		function fixWidths() {
 			var $key = $(),
-				keyboardWidth = $keyboard.width(),
+				numpadWidth = $numpad.width(),
 				totalKeysWidth = 0,
 				difference;
 			if (browserInPercent) {
 				$keys.each(function () {
 					$key = $(this);
-					if (!$key.hasClass('osk-dragger') && !$key.hasClass('osk-space')) {
-						totalKeysWidth += $key.width() + Math.floor((parseFloat($key.css('marginRight')) / 100) * keyboardWidth);
-						if ($key.hasClass('osk-last-item')) {
-							difference = keyboardWidth - totalKeysWidth;
+					if (!$key.hasClass('osn-dragger') && !$key.hasClass('osn-space')) {
+						totalKeysWidth += $key.width() + Math.floor((parseFloat($key.css('marginRight')) / 100) * numpadWidth);
+						if ($key.hasClass('osn-last-item')) {
+							difference = numpadWidth - totalKeysWidth;
 							if (difference > 0) {
 								$key.width($key.width() + difference);
 							}
@@ -91,10 +91,10 @@
 		}
 
 		if (settings.draggable && jQuery.ui) {
-			$keyboard.children('li.osk-dragger').show();
-			$keyboard.css('paddingTop', '0').draggable({
+			$numpad.children('li.osn-dragger').show();
+			$numpad.css('paddingTop', '0').draggable({
 				containment : 'document',
-				handle : 'li.osk-dragger'
+				handle : 'li.osn-dragger'
 			});
 		}
 
@@ -102,48 +102,48 @@
 			$returnKey.html(settings.rewireReturn);
 		}
 
-		$keyboard.css('top', settings.topPosition).css('left', settings.leftPosition);
+		$numpad.css('top', settings.topPosition).css('left', settings.leftPosition);
 
 		fixWidths();
 
-		$keyboard.hide().css('visibility', 'visible');
+		$numpad.hide().css('visibility', 'visible');
 
 		$(window).resize(function () {
 			fixWidths();
 		});
 
-		$keyboardTriggers.click(function () {
+		$numpadTriggers.click(function () {
 			$input = $(this);
 			activateInput($input);
-			$keyboard.fadeIn('fast');
+			$numpad.fadeIn('fast');
 		});
 
-		$keyboard.on('click', 'li', function () {
+		$numpad.on('click', 'li', function () {
 			var $key      = $(this),
 				character = $key.html(),
 				inputValue,
 				indexOfNextInput;
 
 			// Disabled keys/dragger
-			if ($key.hasClass('osk-dragger') || $key.hasClass('osk-disabled')) {
+			if ($key.hasClass('osn-dragger') || $key.hasClass('osn-disabled')) {
 				$input.focus();
 				return false;
 			}
 
-			// 'Hide Keyboard' key
-			if ($key.hasClass('osk-hide')) {
-				$keyboard.fadeOut('fast');
+			// 'Hide Numpad' key
+			if ($key.hasClass('osn-hide')) {
+				$numpad.fadeOut('fast');
 				$input.blur();
-				$keyboardTriggers.removeClass('osk-focused');
+				$numpadTriggers.removeClass('osn-focused');
 				return false;
 			}
 
 			// 'Shift' key
-			if ($key.hasClass('osk-shift')) {
-				$letterKeys.toggleClass('osk-uppercase');
+			if ($key.hasClass('osn-shift')) {
+				$letterKeys.toggleClass('osn-uppercase');
 				$.merge($symbolKeys.children('span'), $numberKeys.children('span')).toggle();
-				if ($symbolKeys.hasClass('osk-disabled')) {
-					$numberKeys.toggleClass('osk-disabled');
+				if ($symbolKeys.hasClass('osn-disabled')) {
+					$numberKeys.toggleClass('osn-disabled');
 				}
 				shift = !shift;
 				capslock = false;
@@ -151,14 +151,14 @@
 			}
 
 			// 'Caps Lock' key
-			if ($key.hasClass('osk-capslock')) {
-				$letterKeys.toggleClass('osk-uppercase');
+			if ($key.hasClass('osn-capslock')) {
+				$letterKeys.toggleClass('osn-uppercase');
 				capslock = true;
 				return false;
 			}
 
 			// 'Backspace' key
-			if ($key.hasClass('osk-backspace')) {
+			if ($key.hasClass('osn-backspace')) {
 				inputValue = $input.val();
 				$input.val(inputValue.substr(0, inputValue.length - 1));
 				$input.trigger('keyup');
@@ -166,24 +166,24 @@
 			}
 
 			// Symbol/number keys
-			if ($key.hasClass('osk-symbol') || $key.hasClass('osk-number')) {
+			if ($key.hasClass('osn-symbol') || $key.hasClass('osn-number')) {
 				character = $('span:visible', $key).html();
 			}
 
 			// Spacebar
-			if ($key.hasClass('osk-space')) {
+			if ($key.hasClass('osn-space')) {
 				character = ' ';
 			}
 
 			// 'Tab' key - either enter an indent (default) or switch to next form element
-			if ($key.hasClass('osk-tab')) {
+			if ($key.hasClass('osn-tab')) {
 				if (settings.rewireTab) {
 					$input.trigger('onchange');
-					indexOfNextInput = $keyboardTriggers.index($input) + 1;
-					if (indexOfNextInput < $keyboardTriggers.length) {
-						$input = $($keyboardTriggers[indexOfNextInput]);
+					indexOfNextInput = $numpadTriggers.index($input) + 1;
+					if (indexOfNextInput < $numpadTriggers.length) {
+						$input = $($numpadTriggers[indexOfNextInput]);
 					} else {
-						$input = $($keyboardTriggers[0]);
+						$input = $($numpadTriggers[0]);
 					}
 					activateInput($input);
 					return false;
@@ -193,9 +193,9 @@
 			}
 
 			// 'Return' key - either linebreak (default) or submit form
-			if ($key.hasClass('osk-return')) {
+			if ($key.hasClass('osn-return')) {
 				if (settings.rewireReturn) {
-					$keyboardTriggers.parent('form').submit();
+					$numpadTriggers.parent('form').submit();
 					return false;
 				} else {
 					character = '\n';
@@ -203,7 +203,7 @@
 			}
 
 			// Uppercase keys
-			if ($key.hasClass('osk-uppercase')) {
+			if ($key.hasClass('osn-uppercase')) {
 				character = character.toUpperCase();
 			}
 
@@ -211,10 +211,10 @@
 			if (shift) {
 				$.merge($symbolKeys.children('span'), $numberKeys.children('span')).toggle();
 				if (!capslock) {
-					$letterKeys.toggleClass('osk-uppercase');
+					$letterKeys.toggleClass('osn-uppercase');
 				}
 				if (settings.disableSymbols) {
-					$numberKeys.toggleClass('osk-disabled');
+					$numberKeys.toggleClass('osn-disabled');
 				}
 				shift = false;
 			}
@@ -228,43 +228,43 @@
 	};
 
 	/**
-	 * Renders the keyboard.
+	 * Renders the numpad.
 	 *
-	 * @param {String} id of the keyboard
-	 * @return {jQuery} the keyboard jQuery instance
+	 * @param {String} id of the numpad
+	 * @return {jQuery} the numpad jQuery instance
 	 */
-	function renderKeyboard(keyboardId) {
-		var $keyboard = $('#' + keyboardId);
+	function renderNumpad(numpadId) {
+		var $numpad = $('#' + numpadId);
 
-		if ($keyboard.length) {
-			return $keyboard;
+		if ($numpad.length) {
+			return $numpad;
 		}
 
-		$keyboard = $(
-			'<ul id="' + keyboardId + '">' +
-				'<li class="osk-one osk-left">1</li>' +
-				'<li class="osk-off">2</li>' +
-				'<li class="osk-off">3</li>' +
-				'<li class="osk-backspace osk-last-item">Delete</li>' +
+		$numpad = $(
+			'<ul id="' + numpadId + '">' +
+				'<li class="osn-one osn-left">1</li>' +
+				'<li class="osn-off">2</li>' +
+				'<li class="osn-off">3</li>' +
+				'<li class="osn-backspace osn-last-item">Delete</li>' +
 
-				'<li class="osk-off osk-left">4</li>' +
-				'<li class="osk-off">5</li>' +
-				'<li class="osk-off">6</li>' +
-				'<li class="osk-hide osk-last-item">Hide</li>' +
+				'<li class="osn-off osn-left">4</li>' +
+				'<li class="osn-off">5</li>' +
+				'<li class="osn-off">6</li>' +
+				'<li class="osn-hide osn-last-item">Hide</li>' +
 
-				'<li class="osk-off osk-left">7</li>' +
-				'<li class="osk-off">8</li>' +
-				'<li class="osk-off osk-last-item">9</li>' +
+				'<li class="osn-off osn-left">7</li>' +
+				'<li class="osn-off">8</li>' +
+				'<li class="osn-off osn-last-item">9</li>' +
 
-				'<li class="osk-off osk-left osk-zero">0</li>' +
-				'<li class="osk-off">.</li>' +
+				'<li class="osn-off osn-left osn-zero">0</li>' +
+				'<li class="osn-off">.</li>' +
 
 			'</ul>'
 		);
 
-		$('body').append($keyboard);
+		$('body').append($numpad);
 
-		return $keyboard;
+		return $numpad;
 	}
 
 })(jQuery);
