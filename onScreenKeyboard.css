@@ -1,125 +1,124 @@
-/*-----[Keyboard structure]---------------------------------------------------*/
+/*-----[Config variables]-----------------------------------------------------*/
+
+:root {
+	--keyboard-background-color: linear-gradient(to bottom, #CCC 0%, #999 100%);
+	--key-background-color: #FEFEFE;
+	--key-background-color-hover: #ACCCE2;
+	--key-background-color-active: #DEDEDE;
+	--key-background-color-disabled: #DDD;
+	--key-font-color: #000;
+	--key-font-color-disabled: #888;
+	--key-font-color-dragger: #444;
+}
+
+/*-----[Keyboard structure & style]---------------------------------------------------*/
 
 #osk-container {
+	width: 80%;
+	/* Account for 2% padding and a vertical scroll bar */
+	min-width: 294px;
+	max-width: 1600px;
+	background: var(--keyboard-background-color);	
+	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+	border-radius: 5px;
 	visibility: hidden;
 	position: fixed;
 	overflow: hidden;
 	padding: 1%;
-	margin: 0;
-	z-index: 100;
+	z-index: 999999999;		
 }
 
-	#osk-container > li {
-		float: left;
-		width: 5.81395349%;
-		height: 3em;
-		margin: 0 0.726744186% 5px 0;
-		line-height: 3em;
-		text-align: center;
-		list-style-type: none;
-		cursor: pointer;
-		-webkit-user-select: none;
-		 -khtml-user-select: none;
-		   -moz-user-select: -moz-none;
-			-ms-user-select: none;
-				user-select: none;
-	}
-
-	#osk-container > .osk-capslock,
-	#osk-container > .osk-tab,
-	#osk-container > .osk-shift {
-		clear: left;
-	}
-
-	#osk-container > .osk-dragger {
-		display: none;
-		width: 100%;
-		cursor: move;
-	}
-
-		#osk-container > .osk-dragger:hover {
-			position: static;
-		}
-
-	#osk-container > .osk-tab,
-	#osk-container > .osk-backspace {
-		width: 14.9709302%;
-	}
-
-	#osk-container > .osk-capslock {
-		width: 13.6337209%;
-	}
-
-	#osk-container > .osk-return {
-		width: 13.6918605%;
-	}
-
-	#osk-container > .osk-shift {
-		width: 16.2381395%;
-	}
-
-	#osk-container > .osk-hide {
-		width: 17.5581396%;
-	}
-
-	#osk-container > .osk-space {
-		clear: left;
-		width: 100%;
-		margin: 0;
-	}
-
-	#osk-container > .osk-last-item {
-		margin-right: 0 !important;
-	}
-
-	#osk-container .osk-on {
-		display: none;
-	}
-
-	#osk-container > .osk-uppercase {
-		text-transform: uppercase;
-	}
-
-	#osk-container > .osk-disabled {
-		cursor: default;
-	}
-
-	#osk-container > .osk-disabled:hover {
-		position: static;
-	}
-
-	#osk-container > li:hover {
-		position: relative;
-		top: 1px;
-	}
-
-/*-----[Customisable styles]--------------------------------------------------*/
-
-#osk-container {
-	width: 47%;     /* Account for 2% padding and a vertical scroll bar */
-	min-width: 500px;
-	max-width: 1200px;
-	background: #EEE;
-	border-radius: 5%;
-	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+#osk-container>button {
+	background-color: var(--key-background-color);
+	border-radius: 5px;
+	box-shadow: 0 3px 5px rgba(0, 0, 0, 0.5);
+	float: left;
+	width: 5.81395349%;
+	height: 3em;
+	margin: 0 0.726744186% 5px 0;
+	line-height: 1em;
+	text-align: center;
+	cursor: pointer;
+	overflow: hidden;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: -moz-none;
+	-ms-user-select: none;
+	user-select: none;
 }
 
-#osk-container > li {
-	background: #DDD;
-	border-radius: 10%;
-	-moz-transition: 0.5s;
-}
-
-#osk-container > .osk-dragger {
+#osk-container>.osk-dragger {
 	background: transparent;
-	color: #AAA;
+	color: var(--key-font-color-dragger);
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+	text-align: center;
+	cursor: move;
 }
 
-#osk-container > .osk-disabled {
-	background: #E5E5E5;
-	color: #CCC;
+#osk-container>.osk-capslock,
+#osk-container>.osk-tab,
+#osk-container>.osk-shift {
+	clear: left;
+}
+
+#osk-container>.osk-tab,
+#osk-container>.osk-backspace {
+	width: 14.9709302%;
+}
+
+#osk-container>.osk-capslock {
+	width: 13.6337209%;
+}
+
+#osk-container>.osk-return {
+	width: 13.6918605%;
+}
+
+#osk-container>.osk-shift {
+	width: 16.2381395%;
+}
+
+#osk-container>.osk-hide {
+	width: 17.5581396%;
+	background-color: lightgreen;
+	font-weight: bold;
+}
+
+#osk-container>.osk-space {
+	clear: left;
+	width: 100%;
+	margin: 0;
+}
+
+#osk-container>.osk-last-item {
+	margin-right: 0 !important;
+}
+
+#osk-container .osk-on {
+	display: none;
+}
+
+#osk-container>.osk-uppercase {
+	text-transform: uppercase;
+}
+
+#osk-container>.osk-disabled {
+	background-color: var(--key-background-color-disabled);
+	color: var(--key-font-color-disabled);
+	cursor: not-allowed;
+}
+
+#osk-container>button:hover {
+	background-color: var(--key-background-color-hover);
+}
+
+#osk-container>button:active {
+	background-color: var(--key-background-color-active);
+	box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.5);
+	position: relative;
+	top: 3px;
 }
 
 .osk-focused {
-	background: #FAFAFA !important;
+	background-color: var(--key-background-color-active) !important;
 }
