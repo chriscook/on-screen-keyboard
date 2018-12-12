@@ -21,14 +21,14 @@
 	],
 	"repository": {
 		"type": "git",
-		"url": "https://github.com/chriscook/on-screen-keyboard.git"
+		"url": "https://github.com/carloromero1991/on-screen-keyboard.git"
 	},
 	"bugs": {
-		"email": "chris@chris-cook.co.uk",
-		"url": "https://github.com/chriscook/on-screen-keyboard/issues"
+		"email": "carlo.romero007@gmail.com",
+		"url": "https://github.com/carloromero1991/on-screen-keyboard/issues"
 	},
 	"dependencies": {
-		"jquery": ">=1.5"
+		"jquery": "^1.12.1"
 	},
 	"optionalDependencies": {
 		"jquery-ui": ">=1.0"
